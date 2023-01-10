@@ -1,0 +1,677 @@
+1) 
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( “I’m JavaScript!’);
+ </script>
+ Whats the error in this ?
+</body>
+</html>
+----------------------------------
+
+Culprit:
+
+In above code the alert message is not enclosed properly in double quotes, we should either use single or double quotes to enclose the message inside alert function
+
+solution:
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script>
+ alert( “I’m JavaScript!");
+ </script>
+ Whats the error in this ?
+</body>
+</html>
+
+============================================================================================================================================================
+
+2)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+scripts.js
+alert(“I’m invoked!”);
+----------------------------------
+
+Culprit: Here the src attribute of script tag is assigned with wrong file name script.js, the correct file name of js script to be linked to html code is scripts.js
+
+Solution:
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”scripts.js”></script>
+</body>
+</html>
+
+scripts.js
+alert(“I’m invoked!”);
+
+==========================================================================================================================================
+
+3)
+explain.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+alert("I'm JavaScript!");
+alert('Hello') // this line is not having semicolon
+alert(`Wor
+ ld`)
+alert(3 +
+1
++ 2); // this is multiple line code and its working
+---------------------------------------------------------------------
+
+Working : 
+In JS, semicolon is not mandatory but it is good practice to indicate the end of statement so the code statement without semicolon is also working.
+The JS support multiline code and alert function is considered as closed untile it finds the closed paranthesis, so the above code is not throwing any errors
+
+=================================================================================================================================================
+
+4)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let admin=9, fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+admin = fname+lname;
+alert( admin ); // "Guvi geek"
+
+------------------------------------------------------------
+
+Solution : To get the alert as "Guvi geek", we need to add space while assigning value to admin variable.
+
+script.js
+let admin=9, fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+admin = fname + " " + lname;
+alert( admin );
+
+=================================================================================================================================================
+5)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+let name = fname+lname;
+alert( 'hello ${name}' );
+
+----------------------------------
+Solultion : To give o/p as "hello Guvi geek", we need to use template literals(backticks) as below
+
+script.js
+
+let fname=10.5; 
+fname = "Guvi";
+lname = "geek"
+let name = fname+" " +lname;
+alert( `hello ${name}`);
+
+=================================================================================================================================================
+
+6)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let a = prompt("First number?");
+let b = prompt("Second number?");
+alert(a + b);
+
+------------------------------------------------------
+
+Solution: To print the sum of 2 numbers
+
+script.js
+
+let a = prompt("First number?");
+let b = prompt("Second number?");
+alert(parseInt(a) + parseInt(b));
+
+=================================================================================================================================================
+
+7)
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+var a = "2" > "12";
+//Don't touch below this
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") 
+}
+
+------------------------------------------------
+
+Explaination: 
+Here the "Code is Blasted" is printed on console, because if block executes as "2" > "12" is true.
+This is because "2" > "12" alphabetically.
+
+To get console o/p as Diffused we need to convert 2,12 to numbers while comparing
+
+Solution:
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+var a = parseInt("2")  > parseInt("12");
+//Don't touch below this
+if (a) {
+  console.log("Code is Blasted")
+}
+else
+{
+  console.log("Diffused") 
+}
+
+=================================================================================================================================================
+
+8)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let a = prompt("Enter a number?");
+//Don't modify any code below this
+if (a) {
+ console.log( 'OMG it works for any number inc 0' );
+}
+else
+{
+ console.log( "Success" );
+}
+
+---------------------------------------------------------------
+
+Solution:
+
+Here to print Success, we need to compare the numeric string returned from prompt with non-numeric string, which always returns false
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let a = prompt("Enter a number?")  > "abc" ;
+//Don't modify any code below this
+if (a) {
+ console.log( 'OMG it works for any number inc 0' );
+}
+else
+{
+ console.log( "Success" );
+}
+
+=================================================================================================================================================
+
+9)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let value = prompt('How many runs you scored in this ball');
+if (value === 4) {
+      console.log("You hit a Four");
+} else if (value === 6) {
+      console.log("You hit a Six");
+} else {
+      console.log("I couldn't figure out");
+}
+
+-----------------------------------------------------------
+Solution: To get correct score
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let value = parseInt(prompt('How many runs you scored in this ball'));
+if (value === 4) {
+      console.log("You hit a Four");
+} else if (value === 6) {
+      console.log("You hit a Six");
+} else {
+      console.log("I couldn't figure out");
+}
+=================================================================================================================================================
+
+10)
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let login = 'Employee';
+let message = (login == 'Employee') ? :
+  (login == 'Director') ? 'Greetings' :
+  (login == '') ? 'No login' :
+  '';
+console.log(message);
+-------------------------------------------------------
+
+Solution:
+To welcome employee
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+let login = 'Employee';
+let message = (login == 'Employee') ? 'Welcome': ((login == 'Director') ? 'Greetings' :((login == '') ? 'No login' :''));
+console.log(message);
+=================================================================================================================================================
+
+11)
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+// You cant change the value of the msg
+let message;
+if (null || 2 || undefined )
+{
+ let message = "welcome boss";
+}
+else
+{
+ let message = "Go away";
+}
+  console.log(message);
+
+-------------------------------------------------
+
+Solution:
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+// You cant change the value of the msg
+var message;
+if (null || 2 || undefined )
+{
+ var message = "welcome boss";
+}
+else
+{
+ let message = "Go away";
+}
+  console.log(message);
+=================================================================================================================================================
+
+12)
+let message;
+let lock = 2;
+//Dont change any code below this 
+if (null || lock || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+  console.log(message);
+
+-------------------------------------
+Solution:
+
+let message;
+let lock = null;
+//Dont change any code below this 
+if (null || lock || undefined )
+{
+  message = "Go away";
+}
+else
+{
+ message = "welcome";
+}
+  console.log(message);
+
+=================================================================================================================================================
+13)
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+//You can change only 2 characters
+let i = 3;
+while (i) {
+  console.log( --i );
+}
+
+----------------------------------------------
+Solution:
+To print 3 2 1
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+//You can change only 2 characters
+let i = 3;
+while (i) {
+  console.log( i-- );
+}
+=================================================================================================================================================
+14)
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let num = 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+num += 1
+console.log(num)
+
+-----------------------------
+Solution: 
+To print 1 to 10 in 4 lines
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+
+script.js
+
+for(let num = 1;  num <= 10 ; num++){
+    console.log(num);
+}
+
+=================================================================================================================================================
+15)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+//You are allowed to modify only one character 
+for (let num = 2; num <= 20; num += 1) {
+  console.log(num)
+}
+
+----------------------------------------------------
+
+Solution: To print even numbers
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+//You are allowed to modify only one character 
+for (let num = 2; num <= 20; num += 2) {
+  console.log(num)
+}
+=================================================================================================================================================
+
+16)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log('Wrapped ${'gifts[i]'} and added a bow!');
+}
+
+-----------------------------------------------------------------------
+
+Solution:
+To print all the gifts
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let gifts = ["teddy bear", "drone", "doll"];
+for (let i = 0; i < 3; i++) {
+  console.log(`Wrapped ${gifts[i]} and added a bow!`);
+}
+
+=================================================================================================================================================
+17)
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let countdown = 100;
+while (countdown > 0) {
+  countdown--;
+  if(countdown == 0)
+  {
+   console.log("bomb triggered");
+  }
+}
+
+--------------------------------------------
+Solution : To disarm the bomb
+
+fix.html
+
+<!DOCTYPE html>
+<html>
+<body>
+ <script src=”script.js”></script>
+</body>
+</html>
+script.js
+
+let countdown = 100;
+while (countdown > 0) {
+  countdown--;
+  if(count == 1)
+  {
+    console.log("bomb disarmed");
+    break;
+  }
+  if(countdown == 0)
+  {
+   console.log("bomb triggered");
+  }
+}
+=================================================================================================================================================
+
+18)
+var lemein = “0”;
+var lemeout = 0;
+var msg = “”;
+if (lemein) {
+ msg += “hi”;
+ }
+if (lemeout) {
+ msg += ‘Hello’;
+}
+console.log(msg);
+---------------------------
+
+output:
+hi
+
+This is because, when we use string as condition it will be always true and here lemein is string "0".
+=================================================================================================================================================
+
+
+
+
